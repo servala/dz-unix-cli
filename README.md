@@ -7,3 +7,14 @@
 присылайте пулл реквесты с решением для SVN или с более элегантным подходом.
 
 См. также: [пост про домашние задания](http://clubs.ya.ru/4611686018427468886/replies.xml?item_no=450).
+
+Итак вот еще раз мое решение.
+
+//делаем директории - выбираем файлы, вырезаем пути, по путям строим дирректории ( тестила в гит баш )
+	git status -s --untracked-files=all --porcelain | sed 's/?? //' | sed 's/\/[^/]*$/\//' | grep '/' | xargs -i mkdir ~/.Trash/{} 
+	( для осьХ)
+	git status -s --untracked-files=all --porcelain | sed 's/?? //' | sed 's/\/[^/]*$/\//' | grep '/' |xargs -I '{}' mkdir ~/.Trash/{}
+
+
+//перемещаем файлы (гит баш)
+	git status -s --untracked-files=all --porcelain | sed 's/?? //' | xargs -i mv {} ~/.Trash/{}
