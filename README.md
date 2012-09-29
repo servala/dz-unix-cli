@@ -17,12 +17,9 @@
 	
 	( для осьХ)
 	git status -s --untracked-files=all --porcelain | sed 's/?? //' | sed 's/\/[^/]*$/\//' | grep '/' |xargs -I '{}' mkdir ~/.Trash/{}
-		
-		</code>
 
 //перемещаем файлы (гит баш)
 		<code>
 
 	git status -s --untracked-files=all --porcelain | sed 's/?? //' | xargs -i mv {} ~/.Trash/{}
-		
-		</code>
+	
