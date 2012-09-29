@@ -11,7 +11,6 @@
 Итак вот еще раз мое решение.
 
 //делаем директории - выбираем файлы, вырезаем пути, по путям строим дирректории ( тестила в гит баш )
-	<pre>
 		<code>
 
 	git status -s --untracked-files=all --porcelain | sed 's/?? //' | sed 's/\/[^/]*$/\//' | grep '/' | xargs -i mkdir ~/.Trash/{} 
@@ -20,13 +19,10 @@
 	git status -s --untracked-files=all --porcelain | sed 's/?? //' | sed 's/\/[^/]*$/\//' | grep '/' |xargs -I '{}' mkdir ~/.Trash/{}
 		
 		</code>
-	</pre>
 
 //перемещаем файлы (гит баш)
-	<pre>
 		<code>
 
 	git status -s --untracked-files=all --porcelain | sed 's/?? //' | xargs -i mv {} ~/.Trash/{}
 		
 		</code>
-	</pre>
