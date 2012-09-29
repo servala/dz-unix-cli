@@ -11,15 +11,14 @@
 Итак вот еще раз мое решение.
 
 //делаем директории - выбираем файлы, вырезаем пути, по путям строим дирректории ( тестила в гит баш )
-		<code>
 
 	git status -s --untracked-files=all --porcelain | sed 's/?? //' | sed 's/\/[^/]*$/\//' | grep '/' | xargs -i mkdir ~/.Trash/{} 
 	
 	( для осьХ)
+	
 	git status -s --untracked-files=all --porcelain | sed 's/?? //' | sed 's/\/[^/]*$/\//' | grep '/' |xargs -I '{}' mkdir ~/.Trash/{}
 
 //перемещаем файлы (гит баш)
-		<code>
 
 	git status -s --untracked-files=all --porcelain | sed 's/?? //' | xargs -i mv {} ~/.Trash/{}
 	
